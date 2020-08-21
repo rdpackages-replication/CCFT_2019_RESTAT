@@ -1,9 +1,9 @@
 ################################################################################
 ## Regression Discontinuity Designs Using Covariates
 ## Author: Calonico, Cattaneo, Farrell and Titiunik
-## Last update: 03-APR-2020
+## Last update: 21-AUG-2020
 ################################################################################
-## WEBSITE: https://sites.google.com/site/rdpackages/
+## WEBSITE: https://rdpackages.github.io/
 ## RDROBUST: install.packages(rdrobust)
 ################################################################################
 ## NOTE: if you are using rdrobust version 2020 or newer, the option 

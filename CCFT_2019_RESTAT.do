@@ -1,10 +1,10 @@
 ********************************************************************************
 ** Regression Discontinuity Designs Using Covariates
 ** Author: Calonico, Cattaneo, Farrell and Titiunik
-** Last update: 03-APR-2020
+** Last update: 21-AUG-2020
 ********************************************************************************
-** WEBSITE: https://sites.google.com/site/rdpackages/
-** RDROBUST: net install rdrobust, from(https://sites.google.com/site/rdpackages/rdrobust/stata) replace
+** WEBSITE: https://rdpackages.github.io/
+** RDROBUST: net install rdrobust, from(https://raw.githubusercontent.com/rdpackages/rdrobust/master/stata) replace
 ********************************************************************************
 ** NOTE: If you are using rdrobust version 2020 or newer, the option 
 ** "masspoints(off) stdvars(on)" may be needed in order to replicate the 

@@ -1,5 +1,4 @@
 clear all
-cd "C:\Users\SCalonico\Dropbox\2016\rdrobust\stata\code"
 qui do rdbwselect.ado
 qui do rdrobust.ado
 
