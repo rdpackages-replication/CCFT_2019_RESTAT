@@ -1,7 +1,7 @@
 ################################################################################
 ## Regression Discontinuity Designs Using Covariates
 ## Author: Calonico, Cattaneo, Farrell and Titiunik
-## Last update: 21-AUG-2020
+## Last update: 07-JUL-2021
 ################################################################################
 ## WEBSITE: https://rdpackages.github.io/
 ## RDROBUST: install.packages(rdrobust)
@@ -33,8 +33,8 @@ out <- matrix(NA,9,3)
 
 ## rho unrestricted; MSE-optimal bandwidths w/o covs; RD w/o covs
 rd <- rdrobust(y, x, c=59.1968)
-h  <- rd$h_l
-b  <- rd$b_l
+h  <- rd$bws[1,1]
+b  <- rd$bws[2,1]
 IL <- rd$ci[3,2] - rd$ci[3,1]
 
 out[1,1] <- round(rd$coef[1],3)
@@ -60,14 +60,14 @@ out[4,3] <- round(rd$pv[3],3)
 
 ## rho=1; MSE-optimal bandwidths w/o covs; RD w/o covs
 rd <- rdrobust (y, x, c=59.1968, rho=1)
-h  <- rd$h_l
-b  <- rd$b_l
-IL <-  rd$ci[3,2] - rd$ci[3,1]
+h  <- rd$bws[1,1]
+b  <- rd$bws[2,1]
+IL <- rd$ci[3,2] - rd$ci[3,1]
 out[5,1] <- paste("[", round(rd$ci[3,1],3),",", round(rd$ci[3,2],3), "]", sep="")
 out[6,1] <- ""
 out[7,1] <- round(rd$pv[3],3)
 out[8,1] <- paste(round(h,3),"|",round(b,3))
-out[9,1] <- paste(round(rd$N_h_l,3),"|",round(rd$N_h_r,3))
+out[9,1] <- paste(round(rd$N_h[1],3),"|",round(rd$N_h[2],3))
 
 ## rho=1; MSE-optimal bandwidths w/o covs; RD w/ covs
 rd <- rdrobust (y, x, c=59.1968, covs=z, h=h, b=b)
@@ -76,7 +76,7 @@ out[5,2] <- paste("[", round(rd$ci[3,1],3),",", round(rd$ci[3,2],3), "]", sep=""
 out[6,2] <- round(ILch,3)
 out[7,2] <- round(rd$pv[3],3)
 out[8,2] <- paste(round(h,3),"|",round(b,3))
-out[9,2] <- paste(round(rd$N_h_l,3),"|",round(rd$N_h_r,3))
+out[9,2] <- paste(round(rd$N_h[1],3),"|",round(rd$N_h[2],3))
 
 ## rho=1; MSE-optimal bandwidths w/ covs; RD w/ covs
 rd <- rdrobust (y, x, c=59.1968, covs=z, rho=1)
@@ -84,8 +84,8 @@ ILch <- ((rd$ci[3,2] - rd$ci[3,1])/IL - 1)* 100
 out[5,3] <- paste("[", round(rd$ci[3,1],3),",", round(rd$ci[3,2],3), "]", sep="")
 out[6,3] <- round(ILch,3)
 out[7,3] <- round(rd$pv[3],3)
-out[8,3] <- paste(round(rd$h_l,3),"|",round(rd$b_l,3))
-out[9,3] <- paste(round(rd$N_h_l,3),"|",round(rd$N_h_r,3))
+out[8,3] <- paste(round(rd$bws[1,1],3),"|",round(rd$bws[2,1],3))
+out[9,3] <- paste(round(rd$N_h[1],3),"|",round(rd$N_h[2],3))
 
 
 rownames(out) <- c("RD treatment effect", "Robust 95% CI", "CI length change (%)", "Robust p-value", 

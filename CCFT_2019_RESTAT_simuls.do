@@ -1,4 +1,4 @@
-clear all
+clear all 
 qui do rdbwselect.ado
 qui do rdrobust.ado
 
