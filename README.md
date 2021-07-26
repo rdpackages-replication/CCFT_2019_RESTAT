@@ -12,6 +12,8 @@ https://rdpackages.github.io/replication
 
 - Dataset: [csv](headstart.csv) | [dta](headstart.dta)
 
+- Python implementation: [main](CCFT_2019_RESTAT.py)
+
 - R implementation: [main](CCFT_2019_RESTAT.R)
 
 - Stata implementation: [main](CCFT_2019_RESTAT.do)
